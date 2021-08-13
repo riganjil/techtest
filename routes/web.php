@@ -24,7 +24,11 @@ Route::group(['middleware' => 'auth_user'], function () {
     Route::get('/technical', 'TechnicalController@technical');
     Route::get('/technical_php', 'TechnicalController@technical_php');
     Route::get('/employee', 'EmployeeController@index');
+
     Route::get('/department', 'DepartmentController@index');
+    Route::get('/department/add', 'DepartmentController@add');
+    Route::post('/department', 'DepartmentController@store');
+
     Route::get('/dependent', 'DependentController@index');
     Route::get('/region', 'LocationController@region');
     Route::get('/country', 'LocationController@country');

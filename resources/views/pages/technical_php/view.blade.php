@@ -127,6 +127,23 @@ if(isset($_POST['submit'])){
   }
 
 }
+
+laravel version :
+public function store(Request $request)
+{
+    $validator = \Validator::make($request->all(), [
+        'name' => 'required|max:100',
+        'email' => 'required|email:rfc,dns|max:255',
+        'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+    ]);
+
+    if ($validator->fails()) {
+        return $validator->errors();
+    }
+
+    return "success";
+
+}
                                         </code>
                                     </pre>
                                 </div>
